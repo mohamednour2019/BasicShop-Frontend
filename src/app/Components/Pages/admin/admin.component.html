@@ -24,11 +24,12 @@
                 <td>{{ product.Name }}</td>
                 <td><input type="text" [(ngModel)]="product.Price" class="form-control"></td>
                 <td>
-                    <input type="number" [(ngModel)]="product.QuantityInStock" class="form-control quantity-control">
+                    <input type="number" (click)="changeQuantity(quantity)" [(ngModel)]="product.QuantityInStock"
+                        class="form-control quantity-control" #quantity>
                 </td>
                 <td>
                     <label class="switch">
-                        <input type="checkbox" [(ngModel)]="product.IsActive">
+                        <input type="checkbox" (click)="toggleStatus(product.Id)" [(ngModel)]="product.IsActive">
                         <span class="slider round"></span>
                     </label>
                 </td>

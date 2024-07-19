@@ -26,5 +26,13 @@ export class ProductService {
         return this.customHttpClient.post<AddProductRequestDto, ProductResponseDto>(url, requestDto);
     }
 
+    toggleProductStatus(productId) {
+        const url = `${environmentValues.apiBaseURL}${environmentValues.endpoints.product}/${productId}`;
+        this.customHttpClient.patch<null, ProductResponseDto>(url, null).subscribe({
+            next: () => { }
+        })
+    }
+
+
 
 }

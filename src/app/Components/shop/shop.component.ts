@@ -16,6 +16,14 @@ export class ShopComponent implements OnInit {
   constructor(private productService: ProductService, private cartService: CartService, private authService: AuthService) { }
 
   ngOnInit(): void {
+
+    this.cartService.removedProductCart.subscribe({
+      next: response => {
+        this.products.unshift(response)
+      }
+    })
+
+
     this.productService.getActiveProducts().subscribe({
       next: response => {
         this.products = response.Data
@@ -31,10 +39,13 @@ export class ShopComponent implements OnInit {
     }
     this.cartService.addProductToCart(requestDto).subscribe({
       next: response => {
-        this.handleProductList(response.Data.Id)
+        this.handleProductList(response.Data.ProductId)
+        this.cartService.newProductCart.next(response.Data);
       }
     })
   }
+
+
 
   handleProductList(productId) {
     let index = this.products.findIndex(x => x.Id == productId);

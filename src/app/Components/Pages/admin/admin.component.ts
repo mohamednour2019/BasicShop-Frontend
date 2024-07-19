@@ -42,4 +42,17 @@ export class AdminComponent implements OnInit {
       })
     }
   }
+
+
+
+  toggleStatus(productId) {
+    this.productService.toggleProductStatus(productId);
+  }
+
+
+  changeQuantity(quantity: HTMLInputElement) {
+    let newQuantity = Number(quantity);
+
+  }
+
 }

@@ -4,4 +4,5 @@ export interface ProductResponseDto {
     Pirce: number;
     QuantityInStock: number;
     IsActive: boolean
+    CartTotalAmout?: number;
 }

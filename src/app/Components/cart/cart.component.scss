@@ -4,17 +4,31 @@
     flex-direction: column;
     height: 100%;
     overflow-y: hidden;
+    background-color: #f8f9fa; /* Light background for better contrast */
 
-    .cart-title {
-        font-size: 1.5rem;
+    .cart-header {
+        display: flex;
+        background-color: #007bff; /* Blue background */
+        color: #fff;
+        padding: 1rem;
         font-weight: bold;
+        border-radius: 4px 4px 0 0; /* Rounded corners at the top */
         margin-bottom: 1rem;
+
+        .header-item {
+            flex: 1;
+            text-align: center;
+            padding: 0 0.5rem; /* Space between columns */
+        }
     }
 
     .cart-total {
         font-size: 1.2rem;
         font-weight: bold;
         margin-bottom: 1rem;
+        padding: 0.5rem;
+        background-color: #e9ecef; /* Light grey background */
+        border-radius: 4px;
     }
 
     .cart-list {
@@ -28,30 +42,37 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.5rem;
+            padding: 1rem;
             border-bottom: 1px solid #e9ecef;
+            background-color: #fff;
+            border-radius: 4px;
+            margin-bottom: 0.5rem; /* Space between items */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 
             .item-name {
                 flex: 2;
                 font-size: 1rem;
+                color: #333; /* Dark text for better readability */
             }
 
             .item-price {
                 flex: 1;
                 text-align: right;
                 font-size: 1rem;
+                color: #666; /* Slightly lighter text color */
             }
 
             .quantity-control {
-                width: 5rem;
+                width: 6rem; /* Slightly wider for better usability */
                 margin: 0 1rem;
                 padding: 0.5rem;
                 border: 1px solid #ced4da;
                 border-radius: 4px;
+                font-size: 1rem;
             }
 
             .delete-button {
-                background-color: #dc3545; /* Bootstrap Danger color */
+                background-color: #dc3545; /* Danger color */
                 color: #fff;
                 border: none;
                 padding: 0.5rem 1rem;
@@ -59,9 +80,10 @@
                 cursor: pointer;
                 font-size: 0.875rem;
                 transition: background-color 0.3s ease;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 
                 &:hover {
-                    background-color: #c82333; /* Darker shade of danger color */
+                    background-color: #c82333; /* Darker shade on hover */
                 }
             }
         }

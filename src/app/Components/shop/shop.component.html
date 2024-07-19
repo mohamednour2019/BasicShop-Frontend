@@ -1,10 +1,19 @@
 <div class="shop">
     <h2 class="shop-title">Products List</h2>
+    <div class="shop-header">
+        <span class="header-item">Product Name</span>
+        <span class="header-item">Price</span>
+        <span class="header-item">Quantity</span>
+        <span class="header-item">Actions</span> <!-- Added for consistency with Add to Cart button -->
+    </div>
     <ul class="product-list">
-        <li class="product-item" *ngFor="let product of products">
+        @for (product of products; track products) {
+        <li class="product-item">
             <span class="product-name">{{ product.Name }}</span>
             <span class="product-price">{{ product.Price | currency }}</span>
+            <span class="product-quantity">{{ product.QuantityInStock }}</span>
             <button class="btn btn-add" (click)="addToCart(product.Id)">Add to Cart</button>
         </li>
+        }
     </ul>
 </div>
