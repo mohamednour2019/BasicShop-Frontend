@@ -1,0 +1,10 @@
+<div class="toast-container">
+    <div *ngIf="toasts" class="toast" [ngClass]="toasts.type">
+        <div class="toast-header">
+            <span *ngIf="toasts.title">{{ toasts.title }}</span>
+        </div>
+        <div class="toast-body">
+            {{ toasts.message}}
+        </div>
+    </div>
+</div>

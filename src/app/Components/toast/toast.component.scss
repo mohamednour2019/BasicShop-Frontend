@@ -1,0 +1,86 @@
+.toast-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+  
+    /* Ensure toast is above other elements */
+    display: flex;
+  
+    /* Allow stacking toasts vertically */
+    flex-direction: column;
+  
+    /* Stack toasts top to bottom */
+    /* Optional: Add some spacing between toasts */
+    gap: 10px;
+  }
+  
+  .toast {
+    padding: 15px 20px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+  
+    /* Default background color */
+    color: #333;
+    opacity: 0.9;
+    transition: all 0.3s ease-in-out;
+  
+    /* Add a slight shadow for depth */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+    &.enter {
+      opacity: 0;
+      transform: translateY(10px);
+  
+      /* Slide in from top on enter */
+      transition: all 0.3s ease-in;
+    }
+  
+    &.leave {
+      opacity: 0;
+      transform: translateY(-10px);
+  
+      /* Slide out to top on leave */
+      transition: all 0.3s ease-out;
+    }
+  
+    &.success {
+      background-color: #dff0d8;
+  
+      /* Light green for success */
+      color: #468847;
+    }
+  
+    &.info {
+      background-color: #d7eefe;
+  
+      /* Light blue for info */
+      color: #3c8dbc;
+    }
+  
+    &.warning {
+      background-color: #ffc9d3;
+  
+      /* Light red for warning */
+      color: #953b39;
+    }
+  
+    &.error {
+      background-color: #f2dede;
+  
+      /* Light red for error */
+      color: #a94442;
+    }
+  }
+  
+  .toast-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .toast-body {
+    font-size: 14px;
+  }
+  

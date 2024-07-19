@@ -1,0 +1,41 @@
+<div class="admin-page">
+    <h1 class="admin-title">Product Management</h1>
+
+    <div class="add-product-form">
+        <h2 class="form-title">Add New Product</h2>
+        <input type="text" class="form-control" placeholder="Product Name" #name>
+        <input type="number" class="form-control" placeholder="Quantity" #quantity>
+        <input type="number" class="form-control" placeholder="Price" #price>
+        <button class="btn btn-add" (click)="addProduct(name,quantity,price)">Add</button>
+    </div>
+
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Visible</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{ product.Name }}</td>
+                <td><input type="text" [(ngModel)]="product.Price" class="form-control"></td>
+                <td>
+                    <input type="number" [(ngModel)]="product.QuantityInStock" class="form-control quantity-control">
+                </td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox" [(ngModel)]="product.IsActive">
+                        <span class="slider round"></span>
+                    </label>
+                </td>
+                <td>
+                    <button class="btn btn-save" (click)="saveProduct(product)">Save</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

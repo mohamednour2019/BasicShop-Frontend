@@ -1,0 +1,72 @@
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a [routerLink]="['/']">River</a>
+    </div>
+    <div class="navbar-buttons">
+        <a [routerLink]="['/login']" class="btn login-btn">Login</a>
+    </div>
+</nav>
+
+<section class="container forms">
+    <div class="form register">
+        <div class="form-content">
+            <!-- <button (click)="showToast()">click me</button> -->
+            <header>Register
+            </header>
+            <form [formGroup]="this.registerForm" (ngSubmit)="onSubmit()">
+                <div class="field input-field field-group">
+                    <div class="col">
+                        <div class="error-message" *ngIf="registerForm.get('firstname').invalid && isSubmited">
+                            <span>Enter first name</span>
+                        </div>
+                        <input type="text" placeholder="First Name" class="input firstname-error" name="firstname"
+                            formControlName="firstname">
+                    </div>
+                    <div class="col">
+                        <div class="error-message" *ngIf="registerForm.get('lastname').invalid && isSubmited">
+                            <span>Enter last name</span>
+                        </div>
+                        <input type="text" placeholder="Last Name" class="input lastname-error" name="lastname"
+                            formControlName="lastname">
+                    </div>
+                </div>
+
+
+                <div class="field input-field">
+                    <div class="error-message" *ngIf="registerForm.get('email').invalid && isSubmited">
+                        <span
+                            *ngIf="(registerForm.get('email').touched && !registerForm.get('email').dirty) || registerForm.get('email').untouched">Enter
+                            Your Email</span>
+                        <span *ngIf="registerForm.get('email').touched && registerForm.get('email').dirty">Invalid
+                            Email</span>
+                    </div>
+                    <input type="email" placeholder="Email" class="input" name="email" formControlName="email">
+                </div>
+
+                <div class="field input-field">
+                    <div class="error-message" *ngIf="registerForm.get('password').invalid && isSubmited">
+                        <span>Invalid Password</span>
+                    </div>
+                    <input type="password" placeholder="Password" class="password" formControlName="password">
+                    <i class='bx bx-hide eye-icon'></i>
+                </div>
+
+
+                <div class="field input-field">
+                    <div class="error-message" *ngIf="registerForm.get('phone').invalid && isSubmited">
+                        <span>Invalid phone number</span>
+                    </div>
+                    <input type="tel" placeholder="Phone Number" class="input" name="phone" formControlName="phone">
+                </div>
+
+                <div class="field button-field">
+                    <button type="submit" class="btn">Register</button>
+                </div>
+            </form>
+
+            <div class="form-link">
+                <span>Already have an account? <a routerLink="/login" class="link login-link">Login</a></span>
+            </div>
+        </div>
+    </div>
+</section>

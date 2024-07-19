@@ -1,0 +1,14 @@
+.shop-and-cart {
+    display: flex;
+    height: 100vh;
+  
+    .shop-section {
+      flex: 1;
+      border-right: 1px solid #ddd;
+    }
+  
+    .cart-section {
+      flex: 1;
+    }
+  }
+  

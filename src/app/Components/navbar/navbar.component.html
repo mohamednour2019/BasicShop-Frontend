@@ -1,0 +1,10 @@
+<nav class="navbar">
+    <div class="navbar-brand" routerLink="/home">Basic Shop</div>
+    <div class="navbar-menu">
+        <a class="nav-item" [routerLink]="['/home']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a class="nav-item" [routerLink]="['/home','shop']" routerLinkActive="active">Shop and Cart</a>
+        <a class="nav-item" [routerLink]="['/home','admin']" routerLinkActive="active">Admin</a>
+    </div>
+    <div class="navbar-user">{{ userName }}</div>
+</nav>

@@ -1,0 +1,58 @@
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a [routerLink]="['/']">BasicShop</a>
+    </div>
+    <div class="navbar-buttons">
+        <a [routerLink]="['/register']" class="btn signup-btn">Sign Up</a>
+    </div>
+</nav>
+
+<section class="container forms">
+    <div class="form login">
+        <div class="form-content">
+            <header>Login</header>
+            <form [formGroup]="this.loginForm" (ngSubmit)="onSubmit()">
+                <div class="field input-field">
+                    <div class="error-message" *ngIf="this.loginForm.get('email').invalid&&this.isSubmited">
+                        <span *ngIf="this.loginForm.get('email').touched&&!this.loginForm.get('email').dirty">Enter Your
+                            Email</span>
+                        <span *ngIf="this.loginForm.get('email').touched&&this.loginForm.get('email').dirty">Invalid
+                            Email</span>
+                    </div>
+                    <input type="email" placeholder="Email" class="input" formControlName="email">
+                </div>
+                <div class="field input-field">
+                    <div class="error-message" *ngIf="this.loginForm.get('password').invalid&&this.isSubmited">
+                        <span>Invalid Password</span>
+                    </div>
+                    <input type="password" placeholder="Password" class="password" formControlName="password">
+                    <i class='bx bx-hide eye-icon'></i>
+                </div>
+
+                <div class="form-link">
+                    <a href="#" class="forgot-pass">Forgot password?</a>
+                </div>
+
+                <div class="field button-field">
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+
+            <div class="form-link">
+                <span>Don't have an account? <a routerLink="/register" class="link signup-link">Signup</a></span>
+            </div>
+        </div>
+
+        <div class="line"></div>
+
+
+        <div class="media-options">
+            <a href="#" class="field google">
+                <i class="uil uil-google"></i>
+                <span>Login with Google</span>
+            </a>
+        </div>
+
+    </div>
+
+</section>

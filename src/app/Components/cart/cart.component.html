@@ -1,0 +1,14 @@
+<div class="cart">
+    <h2 class="cart-title">Cart</h2>
+    <div class="cart-total">Total Price: {{ totalPrice | currency }}</div>
+    <ul class="cart-list">
+        <li class="cart-item" *ngFor="let item of cartItems">
+            <span class="item-name">{{ item.name }}</span>
+            <span class="item-price">{{ item.price | currency }}</span>
+            <input type="number" [(ngModel)]="item.quantity" class="quantity-control">
+            <button class="delete-button" (click)="removeItem(item.id)">
+                Delete
+            </button>
+        </li>
+    </ul>
+</div>
