@@ -7,12 +7,12 @@ import { AdminComponent } from './Components/Pages/admin/admin.component';
 import { ShopAndCartComponent } from './Components/Pages/shop-and-cart/shop-and-cart.component';
 
 const routes: Routes = [
-  { path: "login", component: LoginComponent },
+  { path: "", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   {
     path: "home", component: HomeComponent, children: [
       { path: "admin", component: AdminComponent },
-      { path: "shop", component: ShopAndCartComponent }
+      { path: "shop", component: ShopAndCartComponent },
     ]
   }
 ];

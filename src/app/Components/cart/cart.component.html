@@ -7,10 +7,10 @@
     </div>
     <div class="cart-total">Total Price: {{ totalPrice | currency }}</div>
     <ul class="cart-list">
-        @for (item of cartItems; track $index) {
+        @for (item of cartItems; track cartItems) {
         <li class="cart-item">
             <span class="item-name">{{ item.ProductName }}</span>
-            <span class="item-price">{{ item.ProductPrice | currency }}</span>
+            <span class="item-price">{{ item.UnitPrice | currency }}</span>
             <input type="number" min="0" (click)="changeQuantity(quantity,item.ProductId)" [(ngModel)]="item.Quantity"
                 class="quantity-control" #quantity>
             <button class="delete-button" (click)="removeItem(item.ProductId)">

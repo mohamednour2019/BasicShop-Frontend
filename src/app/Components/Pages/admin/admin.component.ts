@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductService } from '../../../Services/product-services/product.service';
 import { ProductResponseDto } from '../../../Models/product-models/product-response-dto';
 import { AddProductRequestDto } from '../../../Models/product-models/add-product-request-dto.model';
+import { UpdateProductRequestDto } from '../../../Models/product-models/update-product-request-dto.model';
+import { devOnlyGuardedExpression } from '@angular/compiler';
 
 @Component({
   selector: 'app-admin',
@@ -50,9 +52,17 @@ export class AdminComponent implements OnInit {
   }
 
 
-  changeQuantity(quantity: HTMLInputElement) {
-    let newQuantity = Number(quantity);
+  saveProduct(price: number, id: string, quantity: number) {
+    let requestDto: UpdateProductRequestDto = {
+      Quantity: quantity,
+      Price: Number(price),
+      ProductId: id
+    }
+    debugger;
+    this.productService.updateProduct(requestDto);
 
   }
+
+
 
 }

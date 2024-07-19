@@ -43,7 +43,7 @@ export class CartComponent implements OnInit {
 
     this.cartService.deleteProductFromCart(requestDto).subscribe({
       next: response => {
-        this.totalPrice = response.Data.CartTotalAmout
+        this.totalPrice -= this.getProduct(productId).UnitPrice
         this.handleProductList(response.Data.Id);
         this.cartService.removedProductCart.next(response.Data);
       }
@@ -65,8 +65,13 @@ export class CartComponent implements OnInit {
     this.cartService.changeQuantity(requestDto).subscribe({
       next: response => {
         this.totalPrice = response.Data.CartTotalPrice
+        this.getProduct(productId).UnitPrice = response.Data.UnitPrice
       }
     })
+  }
+
+  getProduct(id) {
+    return this.cartItems.find(x => x.ProductId == id);
   }
 
 }

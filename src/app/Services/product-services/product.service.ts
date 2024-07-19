@@ -4,6 +4,7 @@ import { environmentValues } from "../../Environment/environment";
 import { ProductResponseDto } from "../../Models/product-models/product-response-dto";
 import { AddProductRequestDto } from "../../Models/product-models/add-product-request-dto.model";
 import { AuthService } from "../user-services/auth.service";
+import { UpdateProductRequestDto } from "../../Models/product-models/update-product-request-dto.model";
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
@@ -31,6 +32,13 @@ export class ProductService {
         this.customHttpClient.patch<null, ProductResponseDto>(url, null).subscribe({
             next: () => { }
         })
+    }
+
+
+    updateProduct(requestBody: UpdateProductRequestDto) {
+        const url = `${environmentValues.apiBaseURL}${environmentValues.endpoints.product}/update`;
+        return this.customHttpClient.patch<UpdateProductRequestDto, ProductResponseDto>(url, requestBody)
+            .subscribe({ next: response => { } })
     }
 
 

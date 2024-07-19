@@ -4,7 +4,11 @@
         <a class="nav-item" [routerLink]="['/home']" routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }">Home</a>
         <a class="nav-item" [routerLink]="['/home','shop']" routerLinkActive="active">Shop and Cart</a>
+        @if(isAdmin){
         <a class="nav-item" [routerLink]="['/home','admin']" routerLinkActive="active">Admin</a>
+        }
+
+        <a class="nav-item" (click)="logout()" routerLinkActive="active">Logout</a>
     </div>
     <div class="navbar-user">{{ userName }}</div>
 </nav>

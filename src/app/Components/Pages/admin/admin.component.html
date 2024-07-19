@@ -22,10 +22,10 @@
         <tbody>
             <tr *ngFor="let product of products">
                 <td>{{ product.Name }}</td>
-                <td><input type="text" [(ngModel)]="product.Price" class="form-control"></td>
+                <td><input type="number" min="0" [(ngModel)]="product.Price" class="form-control"></td>
                 <td>
-                    <input type="number" (click)="changeQuantity(quantity)" [(ngModel)]="product.QuantityInStock"
-                        class="form-control quantity-control" #quantity>
+                    <input type="number" min="0" [(ngModel)]="product.QuantityInStock"
+                        class="form-control quantity-control">
                 </td>
                 <td>
                     <label class="switch">
@@ -34,7 +34,8 @@
                     </label>
                 </td>
                 <td>
-                    <button class="btn btn-save" (click)="saveProduct(product)">Save</button>
+                    <button class="btn btn-save"
+                        (click)="saveProduct(product.Price,product.Id,product.QuantityInStock)">Save</button>
                 </td>
             </tr>
         </tbody>
